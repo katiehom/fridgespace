@@ -1,0 +1,53 @@
+<%- include('partials/header-welcome') -%>
+
+<main class="container">
+  <div>
+    <div class="card w-96 bg-base-300 shadow-xl mx-auto mt-10">
+      <figure class="px-10 pt-10">
+        <h1 class="text-3xl font-semibold text-primary-content">        
+          <span class="material-symbols-outlined fridge text-violet-400">
+          kitchen
+          </span>FridgeSpace
+        </h1>
+      </figure>
+    <div class="card-body items-center text-center">
+    <section class="mt-5 w-full">
+      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+      <div class="alert alert-danger"><%= el.msg %></div>
+      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+      messages.info.forEach( el => { %>
+      <div class="alert alert-info"><%= el.msg %></div>
+      <% }) %> <% } %>
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="text-violet-400"
+            >Email address</label
+          >
+          <input
+            type="email"
+            class="rounded-md text-base-300 p-1 w-full max-w-md"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            name="email"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="text-violet-400">Password</label>
+          <input
+            type="password"
+            class="form-control rounded-md text-base-300 p-1 w-full max-w-md"
+            id="exampleInputPassword1"
+            name="password"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary mb-10 mt-5 w-full max-w-md">Submit</button>
+        <p class="divide-y divide-base-100">New user?</p>
+        <a href="/signup" class="btn bg-violet-300 text-violet-700 hover:bg-violet-400 hover:text-white w-full mt-3 px-10">Sign up</a>
+      </form>
+    </section>
+  </div>
+</div>
+  </div>
+</main>
+
+<%- include('partials/footer') -%>

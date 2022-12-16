@@ -1,0 +1,95 @@
+<%- include('partials/header') -%>
+<div class="container">
+  <div class="mt-8">
+    <div>
+      <h2><%= exhibit.title %></h2>
+
+      <div class="card w-96 bg-base-300 shadow-xl mx-auto">
+        <figure class="px-10 pt-10">
+          <img src="<%= exhibit.image%>" alt="art" class="rounded-xl" />
+        </figure>
+        <div class="card-body items-center text-center">
+          <h2 class="card-title"><%= exhibit.firstName %></h2>
+          <h3><%= exhibit.age %> years old</h3
+          <p><%= exhibit.caption %></p>
+              <div class="flex flex-row mt-3">
+                <form
+                  class="flex flex-row"
+                  action="/exhibit/likeExhibit/<%= exhibit.id %>?_method=PUT"
+                  method="POST"
+                >
+                <button class="btn btn-accent" type="submit">
+                  <span class="material-symbols-outlined">
+                    favorite
+                    </span>
+                </button>
+                </form>
+                <span class="mx-5 mt-3 align-center">Likes: <%= exhibit.likes %></span>
+                <%if(exhibit.user == user.id){ %>
+                <form
+                  action="/exhibit/deleteExhibit/<%= exhibit.id %>?_method=DELETE"
+                  method="POST"
+                  class="col-3"
+                >
+                <button class="btn btn-secondary ml-16" type="submit">
+                  <span class="material-symbols-outlined">
+                    delete
+                    </span>
+                </button>
+                </form>
+              </div>
+        <%}%>
+      </div>
+    </div>
+  </div>
+
+
+      <!-- <div class="bg-neutral-focus rounded-lg flex">
+        <img class="max-w-xs mx-auto p-8" src="<%= exhibit.image%>" />
+      </div>
+      <div class="row justify-content-between">
+        <form
+          class="col-1"
+          action="/exhibit/likeExhibit/<%= exhibit.id %>?_method=PUT"
+          method="POST"
+        >
+          <button class="btn btn-primary" type="submit"></button>
+        </form>
+        <h3 class="col-3">Likes: <%= exhibit.likes %></h3>
+        <%if(exhibit.user == user.id){ %>
+        <form
+          action="/exhibit/deleteExhibit/<%= exhibit.id %>?_method=DELETE"
+          method="POST"
+          class="col-3"
+        >
+          <button class="btn btn-primary fa fa-trash" type="submit"></button>
+        </form>
+        <%}%>
+      </div> -->
+      
+      <!-- Form for adding comment to exhibit -->
+      <!-- <section class="flex justify-center">
+        <form action="/comment/createComment/<%= exhibit.id %>" method="POST">
+          <div class="mb-3">
+              <label for="comment" class="form-label">Comment</label>
+              <input type="text" class="form-control" id="comment" name="comment">
+          </div>
+          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+        </form>
+
+      <ul class="row list-unstyled mt-4">
+        <% for (let comment of comments) {%>
+          <li class="list-group-flush">
+            <%= comment.comment %>
+          </li>
+        <% } %>
+        </ul> -->
+    </div>
+    <div class="flex justify-center mt-10">
+      <a class="btn btn-primary mx-3" href="/studio">Return to Studio</a>
+      <a class="btn btn-primary mx-3" href="/gallery">Return to Gallery</a>
+    </div>
+  </div>
+</div>
+
+<%- include('partials/footer') -%>

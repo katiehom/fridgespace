@@ -1,0 +1,79 @@
+<%- include('partials/header') -%>
+<header class="bg-white shadow">
+  <div class="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+    <h1 class="text-3xl font-semibold tracking-tight text-violet-900">Studio</h1>
+  </div>
+</header>
+<div class="container flex flex-col justify-evenly">
+  <div>
+    <div class="prose flex flex-row flex-wrap justify-center items-baseline mx-auto bg-base-300 rounded-lg pb-8">
+      <div class="flex flex-row flex-wrap items-baseline">
+        <h2 class="ml-5"><span class="material-symbols-outlined">
+          palette
+          </span> <%= user.userName %>'s Art Studio</h2>
+          <!-- <p class="ml-8"><strong>Email</strong>: <%= user.email %></p> -->
+          <!-- <a href="/logout" class="btn btn-primary">Logout</a> -->
+      </div>
+      <!-- <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8"> -->
+        <!-- Replace with your content -->
+          <!-- The button to open modal -->
+          <label for="my-modal" class="btn btn-primary modal-button ml-8">Add Exhibit</label>
+      </div>
+    </div>
+    <section class="flex flex-col justify-center items-center"> 
+      <div class="container max-w-6xl">
+        <div class="mt-5 flex justify-center">
+          <a class="btn btn-primary mt-5" href="/gallery">Return to Gallery</a>
+        </div> 
+        <div class="mt-8 mx-auto">
+          <ul class="list-none flex flex-row flex-wrap gap-10 mx-auto justify-center content-center">
+          <% for(var i=0; i<exhibits.length; i++) {%>
+            <li class="bg-base-300 rounded-lg flex justify-center w-72">
+              <a href="/exhibit/<%= exhibits[i]._id%>" class="text-center self-center flex">
+                <img src="<%= exhibits[i].image%>" class="max-h-64 mx-auto p-8" >
+              </a>
+            </li>
+          <% } %>
+          </ul>
+        </div>
+      </div> 
+    </section> 
+  </div>
+</div>
+
+          <!-- Put this part before </body> tag -->
+          <input type="checkbox" id="my-modal" class="modal-toggle text-center" />
+          <div class="modal flex">
+            <div class="modal-box text-center">
+              <h2>Add an Exhibit</h2>
+            <form action="/exhibit/createExhibit" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="firstName" class="label">Artist's First Name</label>
+                  <input type="text" class="input input-bordered input-primary bg-base-200 w-full max-w-md" id="firstName" name="firstName" required>
+              </div>
+              <div class="mb-3">
+                <label for="age" class="label">Artist's Age</label>
+                <input type="text" class="input input-bordered input-primary bg-base-200 w-full max-w-md" id="age" name="age" required>
+            </div>
+              <div class="mb-3">
+                <label for="caption" class="label">Caption</label>
+                <textarea class="textarea textarea-primary bg-base-200 w-full max-w-md" id="caption" name="caption" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="label">Image</label>
+                <input type="file" class="block w-full text-sm 
+                file:mr-4 file:py-2 file:px-4
+                file:rounded-lg file:border-0
+                file:text-sm file:font-semibold
+                file:bg-neutral file:text-violet-400
+                hover:file:bg-neutral-content hover:file:text-violet-700" id="imageUpload" name="file">
+              </div>
+              <!-- <div class="modal-action"> -->
+                <label for="my-modal" class="btn">Cancel</label>
+              <!-- </div> -->
+              <button type="submit" class="btn btn-primary mt-3 ml-5" value="Upload">Submit</button>
+            </form>
+            </div>
+          </div>
+          
+<%- include('partials/footer') -%>
