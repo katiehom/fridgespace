@@ -5,8 +5,7 @@ Users can upload children’s artwork, greeting cards and other photos to displa
 
 <p align="center">
   <a href="https://fridgespace.fly.dev/" target="_blank">
-    <img src="![fridgespace](https://user-images.githubusercontent.com/52755177/208049178-6a56b506-55b1-4d30-a2a9-be6ddf9d7907.gif)
-" alt="FridgeSpace"/>
+    <img src="https://user-images.githubusercontent.com/52755177/208049178-6a56b506-55b1-4d30-a2a9-be6ddf9d7907.gif" alt="FridgeSpace"/>
   </a>
 </p>
 
