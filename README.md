@@ -21,7 +21,7 @@ Users can upload children’s artwork, greeting cards and other photos to displa
 
 ## How It's Made:
 
-**Tech used:** <strong>Cloudinary, Node.js, Express.js, MongoDB, Mongoose, EJS, Passport.js, Tailwind CSS, & DaisyUI using MVC architecture.</strong>
+**Tech used:** <strong>Cloudinary, Node.js, Express.js, MongoDB, Mongoose, EJS, Passport.js, Tailwind CSS, DaisyUI & MVC architecture.</strong>
 
 FridgeSpace is a full stack web application utilizing MVC architecture. It runs on Node.js and Express for the backend and EJS to render the views. Users can sign up using passport authentication and begin uploading new images to their studio adding some information about the image within a form. The studio images are shared in a community gallery. Users can like images, or individual images can be deleted if desired.
 
